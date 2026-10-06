@@ -1,36 +1,99 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Formulario e tabela</title>
+    <meta name="description" content="Cadastre e encontre oportunidades de estágio.">
+    <title>Estágio Aberto | Vagas de estágio</title>
     <link rel="stylesheet" href="style.css">
-    
 </head>
 <body>
-   
-    <form>
-        <label for="">Nome Completo:</label>
-        <input type="text" name="nome" id="nome" placeholder="Digite seu nome completo">
-        <label for="">Email:</label>
-        <input type="email" name="email" id="email" placeholder="Digite seu email">
+    <header class="hero">
+        <div class="hero-content">
+            <p class="eyebrow">OPORTUNIDADES PARA COMEÇAR</p>
+            <h1>Seu próximo passo começa aqui.</h1>
+            <p>Encontre uma vaga de estágio ou divulgue uma oportunidade para novos talentos.</p>
+            <a class="hero-link" href="#cadastro">Divulgar uma vaga <span aria-hidden="true">↓</span></a>
+        </div>
+    </header>
 
-        <label for="">Whatsapp:</label>
-        <input type="tel" name="zap" id="zap" placeholder="Digite seu whatzap">
-        <button type="button" id="botao">Se inscreva </button>
-    </form>
+    <main>
+        <section class="content-section" id="cadastro">
+            <div class="section-heading">
+                <div>
+                    <p class="eyebrow">PARA EMPRESAS</p>
+                    <h2>Divulgue uma oportunidade</h2>
+                </div>
+                <p class="section-intro">Preencha os dados da vaga. Ela aparecerá na lista para estudantes.</p>
+            </div>
 
-    <table id="tabela">
-        <tr>
-            <th>Nome</th>
-            <th>Email</th>
-            <th>Whatsapp</th>
-        </tr>
-        
-    </table>
+            <form id="form-vaga">
+                <div class="form-grid">
+                    <label>
+                        Nome da empresa
+                        <input type="text" name="empresa" id="empresa" placeholder="Ex.: Horizonte Tech" required maxlength="80">
+                    </label>
+                    <label>
+                        Nome da vaga
+                        <input type="text" name="vaga" id="vaga" placeholder="Ex.: Estágio em Desenvolvimento" required maxlength="100">
+                    </label>
+                    <label>
+                        Área
+                        <input type="text" name="area" id="area" placeholder="Ex.: Tecnologia" required maxlength="60">
+                    </label>
+                    <label>
+                        Localização
+                        <input type="text" name="localizacao" id="localizacao" placeholder="Ex.: São Paulo - SP ou Remoto" required maxlength="80">
+                    </label>
+                    <label>
+                        Modalidade
+                        <select name="modalidade" id="modalidade" required>
+                            <option value="" disabled selected>Selecione uma modalidade</option>
+                            <option value="Presencial">Presencial</option>
+                            <option value="Híbrido">Híbrido</option>
+                            <option value="Remoto">Remoto</option>
+                        </select>
+                    </label>
+                    <label>
+                        E-mail ou link para candidatura
+                        <input type="text" name="contato" id="contato" placeholder=" talentos@empresa.com ou https://..." required maxlength="160">
+                    </label>
+                </div>
+                <button type="submit">Publicar vaga <span aria-hidden="true">→</span></button>
+                <p class="form-feedback" id="form-feedback" role="status" aria-live="polite"></p>
+            </form>
+        </section>
 
+        <section class="content-section opportunities" aria-labelledby="vagas-titulo">
+            <div class="section-heading">
+                <div>
+                    <p class="eyebrow">OPORTUNIDADES</p>
+                    <h2 id="vagas-titulo">Vagas divulgadas</h2>
+                </div>
+                <span class="vacancy-count" id="contador-vagas">0 vagas</span>
+            </div>
+            <div class="table-wrapper">
+                <table id="tabela-vagas">
+                    <thead>
+                        <tr>
+                            <th scope="col">Vaga</th>
+                            <th scope="col">Empresa</th>
+                            <th scope="col">Localização</th>
+                            <th scope="col">Modalidade</th>
+                            <th scope="col">Candidatura</th>
+                        </tr>
+                    </thead>
+                    <tbody id="lista-vagas">
+                        <tr class="empty-row">
+                            <td colspan="5">Ainda não há vagas divulgadas. Seja a primeira empresa a publicar!</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+
+    <footer>Estágio Aberto <span>·</span> Conectando talentos a oportunidades.</footer>
     <script src="script.js"></script>
-
-    
 </body>
 </html>
